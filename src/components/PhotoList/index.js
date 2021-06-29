@@ -1,4 +1,5 @@
 import {useState} from 'react';
+//const images = require.context('../../assets/small/', true);
 
 function PhotoList({category}){
 
@@ -107,9 +108,10 @@ function PhotoList({category}){
             <div className = "flex-row">
                 {currentPhotos.map((image, i) => (
                     <img
-                        src = {require(`../../assets/small/${category}/${i}.jpg`)}
+                        src={require(`../../assets/small/${category}/${i}.jpg`).default}
+                        //src={images(`./${category}/${i}.jpg`)}
                         alt={image.name}
-                        className={"img-thumbnail mx-1"}
+                        className="img-thumbnail mx-1"
                         key={image.name}
                     />
                 ))}
