@@ -10,7 +10,7 @@ function Nav({categories, setCurrentCategory, currentCategory, contactSelected, 
     return(
         <header data-testid="header" className="flex-row px-1">
             <h2>
-                <a data-testid="link" href="/">
+                <a data-testid="link" href="./">
                 <span role="img" aria-label="camera"> 📸</span> Oh Snap!
                 </a>
             </h2>
