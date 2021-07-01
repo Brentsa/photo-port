@@ -27,6 +27,7 @@ function ContactForm(){
                 await setErrorMessage('');
         }
 
+        console.log(errorMessage);
         if (!errorMessage) 
             setFormState({ ...formState, [event.target.name]: event.target.value });
     }
@@ -35,9 +36,10 @@ function ContactForm(){
     function handleSubmit(event){
         event.preventDefault();
         //****Back-end team to complete***
-        if(name && email && message){
+        if(!errorMessage){
             console.log(formState);
         }
+
     }
 
     return (
