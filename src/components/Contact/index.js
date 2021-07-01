@@ -11,20 +11,20 @@ function ContactForm(){
     const {name, email, message} = formState;
 
     //Called whenever there is a change to the input areas
-    function handleChange(event){
+    async function handleChange(event){
         if(event.target.name === 'email'){
             const isValid = validateEmail(event.target.value);
 
             if(!isValid)
-                setErrorMessage('Your email is invalid.');
+                await setErrorMessage('Your email is invalid.');
             else
-                setErrorMessage('');
+                await setErrorMessage('');
         }
         else{
             if(!event.target.value.length)
-                setErrorMessage(`${event.target.name} is a required field.`);
+                await setErrorMessage(`${event.target.name} is a required field.`);
             else
-                setErrorMessage('');
+                await setErrorMessage('');
         }
 
         if (!errorMessage) 
@@ -42,7 +42,7 @@ function ContactForm(){
 
     return (
         <section>
-            <h1>Contact Me</h1>
+            <h1 data-testid="contact">Contact Me</h1>
             <form id="contact-form" onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor="name">Name: </label>
@@ -61,7 +61,7 @@ function ContactForm(){
                         <p className="error-text">{errorMessage}</p>
                     </div>
                 )}
-                <button type="submit">Submit</button>
+                <button type="submit" data-testid="button">Submit</button>
             </form>
         </section>
     )
