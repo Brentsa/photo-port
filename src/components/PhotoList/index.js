@@ -109,7 +109,7 @@ function PhotoList({category}){
 
     function toggleModal(image, i){
         setCurrentPhoto({...image, index: i});
-        setIsModalOpen(true);
+        setIsModalOpen(!isModalOpen);
     }
 
     return(
